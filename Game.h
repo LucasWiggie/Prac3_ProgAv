@@ -16,9 +16,12 @@ using namespace std;
 class Game
 {
 private:
-	Scene sceneOne;
+	Scene* activeScene;
+	vector<Scene*> scenes;
 		
 public:
+	Game() : activeScene(nullptr) {}; 
+
 	void Init();
 	void Render();
 	void Update();

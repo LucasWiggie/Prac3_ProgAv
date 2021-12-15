@@ -22,6 +22,8 @@ public:
 
 	Scene() : boundary(Vector3D(8, 6, 4)) {}
 
+	Scene(vector<Solid*> newGameObjects, Vector3D newBoundary) : gameObjects(newGameObjects), boundary(newBoundary) {};
+
 	inline Vector3D getBoundary() const {
 		return this->boundary;
 	}
