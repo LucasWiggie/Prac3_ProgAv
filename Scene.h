@@ -34,6 +34,6 @@ public:
 
 	void addGameObject(Solid*);
 	void Render();
-	void Update();
+	void Update(const float& time);
 };
 

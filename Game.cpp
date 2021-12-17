@@ -23,10 +23,11 @@ void Game::Init() {
 
 	Camera* camera = new Camera(newCameraCoords, Color(0, 0, 0), newCameraOrientation, Vector3D(0, 0, 0), Vector3D(0, 0, 0));
 	
-	// MODELO
+	// LOADER
 	ModelLoader* loader = new ModelLoader();
 	loader->setScale(0.1);
 
+	// MODELO PRUEBA
 	Model* shrek = new Model();
 	loader->loadModel("3D\\shrek.obj");
 	*shrek = loader->getModel();
@@ -97,6 +98,18 @@ void Game::Init() {
 
 	Cylinder* cylinder = new Cylinder(newCylinderCoords, newCylinderColor, newCylinderOrientation, newCylinderOrientationSpeed, newCylinderSpeed, 0.4, 0.4, 0.5, 50, 50);
 
+	// TEXT
+	Text* text = new Text(Vector3D(0.0, 0.0, 0.0), Color(0.8, 0.0, 0.5), Vector3D(0.0, 0.0, 0.0), Vector3D(0.0, 0.0, 0.0), Vector3D(0.0, 0.0, 0.0), string("texto de prueba"));
+
+	// PLAYER
+	this->player = new Model();
+	loader->loadModel("3D\\shrek.obj");
+	*this->player = loader->getModel();
+	this->player->setCoordinates(Vector3D(0.0, 0.0, 0.0));
+	this->player->setOrientation(Vector3D(0.0, 0.0, 0.0));
+	this->player->setSpeed(Vector3D(0.0, 0.0, 0.0));
+	this->player->paintColor(Color(0.8, 0.0, 0.3));
+
 	
 	// SCENES
 	Scene* sceneOne = new Scene();
@@ -108,11 +121,20 @@ void Game::Init() {
 	sceneOne->addGameObject(torus);
 	sceneOne->addGameObject(cuboid);
 	sceneOne->addGameObject(cylinder);
+	sceneOne->addGameObject(text);
 
+	Scene* sceneTwo = new Scene();
+	sceneTwo->addGameObject(camera);
+	sceneTwo->addGameObject(this->player);
+	
+
+	//loader->clear();
 
 	// ADD SCENES TO GAME
 	this->scenes.push_back(sceneOne);
-	activeScene = sceneOne;
+	this->scenes.push_back(sceneTwo);
+
+	activeScene = sceneTwo;
 }
 
 void Game::Render() {
@@ -123,6 +145,11 @@ void Game::Render() {
 
 void Game::Update() {
 
-	activeScene->Update();
+	milliseconds currentTime = duration_cast<milliseconds>(system_clock::now().time_since_epoch());
+
+	if ((currentTime.count() - this->initialMilliseconds.count()) - this->lastUpdatedTime > UPDATE_PERIOD) {
+		this->activeScene->Update(TIME_INCREMENT);
+		this->lastUpdatedTime = currentTime.count() - this->initialMilliseconds.count();
+	}
 
 }
