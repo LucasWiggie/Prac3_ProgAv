@@ -4,6 +4,19 @@ using namespace std;
 
 void Game::ProcessKeyPressed(unsigned char key, int px, int py) {
 	cout << "Tecla pulsada: " << key << endl;
+
+	if (key == 'w') {
+		this->player->movementForward();
+	}
+	else if (key == 's') {
+		this->player->movementBack();
+	}
+	else if (key == 'a') {
+		this->player->movementLeft();
+	}
+	else if (key == 'd') {
+		this->player->movementRight();
+	}
 }
 
 void Game::ProcessMouseMovement(int x, int y) {
@@ -102,14 +115,16 @@ void Game::Init() {
 	Text* text = new Text(Vector3D(0.0, 0.0, 0.0), Color(0.8, 0.0, 0.5), Vector3D(0.0, 0.0, 0.0), Vector3D(0.0, 0.0, 0.0), Vector3D(0.0, 0.0, 0.0), string("texto de prueba"));
 
 	// PLAYER
-	this->player = new Model();
+	Player player1 = Player();
 	loader->loadModel("3D\\shrek.obj");
-	*this->player = loader->getModel();
-	this->player->setCoordinates(Vector3D(0.0, 0.0, 0.0));
-	this->player->setOrientation(Vector3D(0.0, 0.0, 0.0));
-	this->player->setSpeed(Vector3D(0.0, 0.0, 0.0));
-	this->player->paintColor(Color(0.8, 0.0, 0.3));
+	player1.setModel(loader->getModel());
 
+	player1.getModel().setCoordinates(Vector3D(0.0, 0.0, 0.0));
+	player1.getModel().setOrientation(Vector3D(0.0, 0.0, 0.0));
+	player1.getModel().setSpeed(Vector3D(0.0, 0.0, 0.0));
+	player1.getModel().paintColor(Color(0.8, 0.0, 0.3));
+
+	*this->player = player1;
 	
 	// SCENES
 	Scene* sceneOne = new Scene();
@@ -125,7 +140,7 @@ void Game::Init() {
 
 	Scene* sceneTwo = new Scene();
 	sceneTwo->addGameObject(camera);
-	sceneTwo->addGameObject(this->player);
+	sceneTwo->addGameObject(this->player->getModelPtr());
 	
 
 	//loader->clear();

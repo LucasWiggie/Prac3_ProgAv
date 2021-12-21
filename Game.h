@@ -12,6 +12,7 @@
 #include "ModelLoader.h"
 #include <chrono>
 #include "Text.h"
+#include "Player.h"
 
 using namespace std::chrono;
 
@@ -27,7 +28,7 @@ private:
 	Scene* activeScene;
 	vector<Scene*> scenes;
 
-	Model* player;
+	Player* player;
 		
 public:
 	Game() : activeScene(nullptr), initialMilliseconds(duration_cast<milliseconds>(system_clock::now().time_since_epoch())), lastUpdatedTime(0), player(nullptr) {};
@@ -38,6 +39,5 @@ public:
 	void ProcessKeyPressed(unsigned char key, int px, int py);
 	void ProcessMouseMovement(int x, int y);
 	void ProcessMouseClick(int button, int state, int x, int y);
-
 };
 
