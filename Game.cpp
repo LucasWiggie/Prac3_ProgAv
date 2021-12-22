@@ -31,8 +31,8 @@ void Game::Init() {
 	
 	// CAMERA
 	// Camera(Vector3D coords, Color color, Vector3D orientation, Vector3D orientSpeed) : Solid(coords, color, orientation, orientSpeed)
-	Vector3D newCameraCoords = Vector3D(4, 3, 12);
-	Vector3D newCameraOrientation = Vector3D(30, 30, 0);
+	Vector3D newCameraCoords = Vector3D(0, 0, 7);
+	Vector3D newCameraOrientation = Vector3D(0, 0, 0);
 
 	Camera* camera = new Camera(newCameraCoords, Color(0, 0, 0), newCameraOrientation, Vector3D(0, 0, 0), Vector3D(0, 0, 0));
 	
@@ -115,16 +115,16 @@ void Game::Init() {
 	Text* text = new Text(Vector3D(0.0, 0.0, 0.0), Color(0.8, 0.0, 0.5), Vector3D(0.0, 0.0, 0.0), Vector3D(0.0, 0.0, 0.0), Vector3D(0.0, 0.0, 0.0), string("texto de prueba"));
 
 	// PLAYER
-	Player player1 = Player();
+	this->player = new Player();
 	loader->loadModel("3D\\shrek.obj");
-	player1.setModel(loader->getModel());
+	Model* pm = new Model();
+	*pm = loader->getModel();
+	player->setModel(pm);
+	player->getModel().setCoordinates(Vector3D(0.0, 0.0, 0.0));
+	player->getModel().setOrientation(Vector3D(0.0, 0.0, 0.0));
+	player->getModel().setSpeed(Vector3D(0.0, 0.0, 0.0));
+	player->getModel().paintColor(Color(0.8, 0.0, 0.3));
 
-	player1.getModel().setCoordinates(Vector3D(0.0, 0.0, 0.0));
-	player1.getModel().setOrientation(Vector3D(0.0, 0.0, 0.0));
-	player1.getModel().setSpeed(Vector3D(0.0, 0.0, 0.0));
-	player1.getModel().paintColor(Color(0.8, 0.0, 0.3));
-
-	*this->player = player1;
 	
 	// SCENES
 	Scene* sceneOne = new Scene();

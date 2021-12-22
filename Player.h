@@ -1,7 +1,8 @@
 #pragma once
 #include "Model.h"
+#include "Solid.h"
 
-class Player
+class Player : public Solid
 {
 private:
 	Model* modelPtr;
@@ -10,7 +11,7 @@ public:
 	Player() {};
 
 	//Devuelve el contenido del puntero  Models
-	inline Model getModel() const{
+	inline Model& getModel() {
 		return *this->modelPtr;
 	}
 
@@ -19,9 +20,11 @@ public:
 		return modelPtr;
 	}
 
-	inline void setModel(Model newModel) {
-		*this->modelPtr = newModel;
+	inline void setModel(Model* newModel) {
+		this->modelPtr = newModel;
 	}
+
+	void Render();
 
 	void movementRight();
 	void movementLeft();
