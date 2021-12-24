@@ -1,51 +1,105 @@
 #pragma once
 
-class Vector3D
+//typedef Vector3Dx<float> Vector3Df;
+//
+//typedef Vector3Dx<float> Vector3Df;
+//typedef Vector3Dx<double> Vector3Dd;
+//typedef Vector3Dx<int> Vector3Di;
+
+template<class S> class Vector3Dx
 {
+	typedef Vector3Dx<float> Vector3Df;
+
+	typedef Vector3Dx<float> Vector3Df;
+	typedef Vector3Dx<double> Vector3Dd;
+	typedef Vector3Dx<int> Vector3Di;
+
 private:
-	float coordinateX;
-	float coordinateY;
-	float coordinateZ;
+	S coordinateX;
+	S coordinateY;
+	S coordinateZ;
 
 public:
-	Vector3D() : coordinateX(0.0), coordinateY(0.0), coordinateZ(0.0) { }
+	Vector3Dx() : coordinateX(0.0), coordinateY(0.0), coordinateZ(0.0) { }
 
-	Vector3D(float x, float y, float z) : coordinateX(x), coordinateY(y), coordinateZ(z) {}
+	Vector3Dx(S x, S y, S z) : coordinateX(x), coordinateY(y), coordinateZ(z) {}
 
-	inline float getCoordinateX() const {
+	inline S getCoordinateX() const {
 		return this->coordinateX;
 	}
 
-	inline float getCoordinateY() const {
+	inline S getCoordinateY() const {
 		return this->coordinateY;
 	}
 
-	inline float getCoordinateZ() const {
+	inline S getCoordinateZ() const {
 		return this->coordinateZ;
 	}
 
-	inline void setCoordinateX(const float& coordinateXtoSet) {
+	inline void setCoordinateX(S coordinateXtoSet) {
 		this->coordinateX = coordinateXtoSet;
 	}
 
-	inline void setCoordinateY(const float& coordinateYtoSet) {
+	inline void setCoordinateY(S coordinateYtoSet) {
 		this->coordinateY = coordinateYtoSet;
 	}
 
-	inline void setCoordinateZ(const float& coordinateZtoSet) {
+	inline void setCoordinateZ(S coordinateZtoSet) {
 		this->coordinateZ = coordinateZtoSet;
 	}
 
-	Vector3D Add(const Vector3D& vector);
-	Vector3D Substract(const Vector3D& vector);
-	Vector3D Product(const float& value);
-	Vector3D Division(const float& value);
-	float DotProduct(const Vector3D& vector);
+	Vector3Dx<S> operator+(Vector3Dx<S> vector);
+	Vector3Dx<S> operator-(Vector3Dx<S> vector);
+	Vector3Dx<S> operator*(S s);
+	Vector3Dx<S> operator/(S vector);
+	S operator*(Vector3Dx<S> vector);
 
-	Vector3D operator+(const Vector3D& vector);
-	Vector3D operator-(const Vector3D& vector);
-	Vector3D operator*(const float& vector);
-	Vector3D operator/(const float& vector);
-	float operator*(const Vector3D& vector);
+	template <class S> Vector3Dx<S> Vector3Dx<S>::operator+(Vector3Dx<S> vector) {
+		S x = coordinateX + vector.coordinateX;
+		S y = coordinateY + vector.coordinateY;
+		S z = coordinateZ + vector.coordinateZ;
+
+		Vector3Dx newVect(x, y, z);
+		return newVect;
+	}
+
+	template <class S> Vector3Dx<S> Vector3Dx<S>::operator-(Vector3Dx<S> vector) {
+		float x = coordinateX - vector.coordinateX;
+		float y = coordinateY - vector.coordinateY;
+		float z = coordinateZ - vector.coordinateZ;
+
+		Vector3Df newVect(x, y, z);
+		return newVect;
+	}
+
+	template <class S> Vector3Dx<S> Vector3Dx<S>::operator*(S s) {
+		float x = coordinateX * value;
+		float y = coordinateY * value;
+		float z = coordinateZ * value;
+
+		Vector3Df newVect(x, y, z);
+		return newVect;
+	}
+
+	template <class S> Vector3Dx<S> Vector3Dx<S>::operator/(S s) {
+		float x = coordinateX / value;
+		float y = coordinateY / value;
+		float z = coordinateZ / value;
+
+		Vector3Df newVect(x, y, z);
+		return newVect;
+	}
+
+	template <class S> S Vector3Dx<S>::operator*(Vector3Dx<S> vector) {
+		float x = coordinateX * vector.coordinateX;
+		float y = coordinateY * vector.coordinateY;
+		float z = coordinateZ * vector.coordinateZ;
+
+		return x + y + z;
+	}
 };
+
+
+
+
 

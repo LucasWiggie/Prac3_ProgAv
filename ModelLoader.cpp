@@ -12,7 +12,7 @@ float ModelLoader :: getLength() {
 	return (maxZ - minZ);
 }
 
-void ModelLoader :: calcBoundaries(Vector3D vertex) {
+void ModelLoader :: calcBoundaries(Vector3Df vertex) {
 	
 	this->maxX = fmax(this->maxX, vertex.getCoordinateX());
 	this->maxY = fmax(this->maxY, vertex.getCoordinateY());
@@ -26,7 +26,7 @@ void ModelLoader :: calcBoundaries(Vector3D vertex) {
 
 Triangle ModelLoader :: center(Triangle triangle) {
 
-	Vector3D modelCenter(this->minX + this->getWidth() / 2.0,
+	Vector3Df modelCenter(this->minX + this->getWidth() / 2.0,
 		this->minY + this->getHeight() / 2.0,
 		this->minZ + this->getLength() / 2.0);
 
@@ -42,13 +42,13 @@ Triangle ModelLoader :: center(Triangle triangle) {
 
 }
 
-Vector3D ModelLoader :: parseObjLineToVector3D(const string& line) {
+Vector3Df ModelLoader :: parseObjLineToVector3D(const string& line) {
 	
 	string typeOfPoint;
 	float xCoordinate, yCoordinate, zCoordinate;
 	istringstream stringStream(line);
 	stringStream >> typeOfPoint >> xCoordinate >> yCoordinate >> zCoordinate;
-	Vector3D vectorPoint(xCoordinate, yCoordinate, zCoordinate);
+	Vector3Df vectorPoint(xCoordinate, yCoordinate, zCoordinate);
 	return vectorPoint * this->getScale();
 }
 
@@ -63,10 +63,10 @@ Triangle ModelLoader::parseObjTriangle(const string& line) {
 	stringStream >> idxVertex1 >> c >> c >> idxNormal1;
 	stringStream >> idxVertex2 >> c >> c >> idxNormal2;
 
-	Vector3D vertex0 = this->vertexList[idxVertex0 - 1];
-	Vector3D vertex1 = this->vertexList[idxVertex1 - 1];
-	Vector3D vertex2 = this->vertexList[idxVertex2 - 1];
-	Vector3D normal = this->normalList[idxNormal0 - 1];
+	Vector3Df vertex0 = this->vertexList[idxVertex0 - 1];
+	Vector3Df vertex1 = this->vertexList[idxVertex1 - 1];
+	Vector3Df vertex2 = this->vertexList[idxVertex2 - 1];
+	Vector3Df normal = this->normalList[idxNormal0 - 1];
 
 	Triangle parsedTriangle = Triangle(vertex0, vertex1, vertex2, normal, normal, normal);
 	
@@ -85,11 +85,11 @@ void ModelLoader::loadModel(const string& filePath) {
 			while (getline(objFile, line)) {
 
 				if (line[0] == 'v' && line[1] == 'n') {
-					Vector3D normal = this->parseObjLineToVector3D(line);
+					Vector3Df normal = this->parseObjLineToVector3D(line);
 					this->normalList.push_back(normal);
 				}
 				else if (line[0] == 'v') {
-					Vector3D vertex = this->parseObjLineToVector3D(line);
+					Vector3Df vertex = this->parseObjLineToVector3D(line);
 					this->calcBoundaries(vertex);
 					this->vertexList.push_back(vertex);
 				}

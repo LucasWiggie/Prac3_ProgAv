@@ -12,7 +12,7 @@ private:
 
 public:
 	Torus() : Solid(){}
-	Torus(Vector3D coords, Color color, Vector3D orient, Vector3D orientSpeed, Vector3D speed, double inRad, double outRad, int faces, int rings) :
+	Torus(Vector3Df coords, Color color, Vector3Df orient, Vector3Df orientSpeed, Vector3Df speed, double inRad, double outRad, int faces, int rings) :
 		Solid(coords, color, orient, orientSpeed, speed), innerRadius(inRad), outerRadius(outRad), faces(faces), rings(rings) {}
 
 	inline float getInnerRadius() const {

@@ -9,7 +9,7 @@ private:
 
 public:
 	Teapot() : Solid() {}
-	Teapot(Vector3D coords, Color color, Vector3D orient, Vector3D orientSpeed, Vector3D speed, float size) :
+	Teapot(Vector3Df coords, Color color, Vector3Df orient, Vector3Df orientSpeed, Vector3Df speed, float size) :
 		Solid(coords, color, orient, orientSpeed, speed), size(size) {}
 
 	inline float getSize() const {

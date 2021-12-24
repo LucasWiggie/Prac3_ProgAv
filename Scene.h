@@ -14,21 +14,21 @@ class Scene
 { 
 private:
 	vector<Solid*> gameObjects;
-	Vector3D boundary;
+	Vector3Df boundary;
 
 	void checkBoundary(Solid*);
 
 public:
 
-	Scene() : boundary(Vector3D(8, 6, 4)) {}
+	Scene() : boundary(Vector3Df(8, 6, 4)) {}
 
-	Scene(vector<Solid*> newGameObjects, Vector3D newBoundary) : gameObjects(newGameObjects), boundary(newBoundary) {};
+	Scene(vector<Solid*> newGameObjects, Vector3Df newBoundary) : gameObjects(newGameObjects), boundary(newBoundary) {};
 
-	inline Vector3D getBoundary() const {
+	inline Vector3Df getBoundary() const {
 		return this->boundary;
 	}
 
-	inline void setBoundary(const Vector3D newBoundary) {
+	inline void setBoundary(const Vector3Df newBoundary) {
 		this->boundary = newBoundary;
 	}
 

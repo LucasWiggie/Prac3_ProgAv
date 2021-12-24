@@ -5,7 +5,7 @@ class Camera : public Solid
 {
 public:
 	Camera() : Solid() {}
-	Camera(Vector3D coords, Color color, Vector3D orientation, Vector3D orientSpeed, Vector3D speed) : 
+	Camera(Vector3Df coords, Color color, Vector3Df orientation, Vector3Df orientSpeed, Vector3Df speed) : 
 		Solid(coords, color, orientation, orientSpeed, speed) {}
 
 	void Render();

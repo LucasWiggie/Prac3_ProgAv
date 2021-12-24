@@ -5,17 +5,17 @@
 class Solid
 {
 private:
-	Vector3D coordinates;
+	Vector3Df coordinates;
 	Color colorCoords;
-	Vector3D orientation;
-	Vector3D orientationSpeed;
-	Vector3D speed;
+	Vector3Df orientation;
+	Vector3Df orientationSpeed;
+	Vector3Df speed;
 
 public:
 	Solid() : coordinates(), colorCoords(), orientation(), orientationSpeed(), speed() {}
-	Solid(Vector3D coords, Color color, Vector3D orient, Vector3D orientSpeed, Vector3D newSpeed) : coordinates(coords), colorCoords(color), orientation(orient), orientationSpeed(orientSpeed), speed(newSpeed) {}
+	Solid(Vector3Df coords, Color color, Vector3Df orient, Vector3Df orientSpeed, Vector3Df newSpeed) : coordinates(coords), colorCoords(color), orientation(orient), orientationSpeed(orientSpeed), speed(newSpeed) {}
 
-	inline Vector3D getCoordinates() const {
+	inline Vector3Df getCoordinates() const {
 		return this->coordinates;
 	}
 
@@ -23,19 +23,19 @@ public:
 		return this->colorCoords;
 	}
 
-	inline Vector3D getOrientation() const {
+	inline Vector3Df getOrientation() const {
 		return this->orientation;
 	}
 
-	inline Vector3D getOrientationSpeed() const {
+	inline Vector3Df getOrientationSpeed() const {
 		return this->orientationSpeed;
 	}
 
-	inline Vector3D getSpeed() const {
+	inline Vector3Df getSpeed() const {
 		return this->speed;
 	}
 
-	inline void setCoordinates(Vector3D newCoordinates) {
+	inline void setCoordinates(Vector3Df newCoordinates) {
 		this->coordinates.setCoordinateX(newCoordinates.getCoordinateX());
 		this->coordinates.setCoordinateY(newCoordinates.getCoordinateY());
 		this->coordinates.setCoordinateZ(newCoordinates.getCoordinateZ());
@@ -47,19 +47,19 @@ public:
 		this->colorCoords.setBlueComponent(newColor.getBlueComponent());
 	}
 
-	inline void setOrientation(Vector3D newOrientation) {
+	inline void setOrientation(Vector3Df newOrientation) {
 		this->orientation.setCoordinateX(newOrientation.getCoordinateX());
 		this->orientation.setCoordinateY(newOrientation.getCoordinateY());
 		this->orientation.setCoordinateZ(newOrientation.getCoordinateZ());
 	}
 
-	inline void setOrientationSpeed(Vector3D newOrientationSpeed) {
+	inline void setOrientationSpeed(Vector3Df newOrientationSpeed) {
 		this->orientationSpeed.setCoordinateX(newOrientationSpeed.getCoordinateX());
 		this->orientationSpeed.setCoordinateY(newOrientationSpeed.getCoordinateY());
 		this->orientationSpeed.setCoordinateZ(newOrientationSpeed.getCoordinateZ());
 	}
 
-	inline void setSpeed(Vector3D newSpeed) {
+	inline void setSpeed(Vector3Df newSpeed) {
 		this->speed.setCoordinateX(newSpeed.getCoordinateX());
 		this->speed.setCoordinateY(newSpeed.getCoordinateY());
 		this->speed.setCoordinateZ(newSpeed.getCoordinateZ());

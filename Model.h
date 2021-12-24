@@ -11,7 +11,7 @@ private:
 public:
 	Model() : Solid() {};
 	Model(vector <Triangle> _triangleList, 
-		Vector3D coords, Color color, Vector3D orient, Vector3D orientSpeed, Vector3D speed) : 
+		Vector3Df coords, Color color, Vector3Df orient, Vector3Df orientSpeed, Vector3Df speed) : 
 		Solid(coords, color, orient, orientSpeed, speed), triangleList(_triangleList) {};
 
 	vector<Triangle> getTriangleList() {
