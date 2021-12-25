@@ -34,3 +34,4 @@ void Scene::Update(const float& time) {
 		this->checkBoundary(gameObjects[i]);
 	}
 }
+

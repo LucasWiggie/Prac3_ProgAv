@@ -35,5 +35,7 @@ public:
 	void addGameObject(Solid*);
 	void Render();
 	void Update(const float& time);
+	virtual void init() = 0;
+	virtual void processKeyPressed() = 0;
 };
 

@@ -1,10 +1,6 @@
 #pragma once
-#include "Teapot.h"
-#include "Cube.h"
-#include "Sphere.h"
-#include "Torus.h"
-#include "Cuboid.h"
-#include "Cylinder.h"
+
+#include "Solid.h"
 #include <vector>
 #include "Scene.h"
 #include "Camera.h"
@@ -13,6 +9,7 @@
 #include <chrono>
 #include "Text.h"
 #include "Player.h"
+#include "levelOne.h"
 
 using namespace std::chrono;
 
@@ -27,11 +24,9 @@ private:
 
 	Scene* activeScene;
 	vector<Scene*> scenes;
-
-	Player* player;
 		
 public:
-	Game() : activeScene(nullptr), initialMilliseconds(duration_cast<milliseconds>(system_clock::now().time_since_epoch())), lastUpdatedTime(0), player(nullptr) {};
+	Game() : activeScene(nullptr), initialMilliseconds(duration_cast<milliseconds>(system_clock::now().time_since_epoch())), lastUpdatedTime(0) {};
 
 	void Init();
 	void Render();

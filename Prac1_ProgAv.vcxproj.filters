@@ -49,6 +49,12 @@
     <Filter Include="Archivos de origen\Coche101">
       <UniqueIdentifier>{e9eec0d1-7a2c-406b-a329-fc9694dda57f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\Scenes">
+      <UniqueIdentifier>{21a1f994-7c93-48e2-9593-7df980f6c527}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Scenes">
+      <UniqueIdentifier>{aa23d846-7489-4be9-b8ef-234342c249bc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Prac3_ProgAv.cpp">
@@ -84,9 +90,6 @@
     <ClCompile Include="Triangle.cpp">
       <Filter>Archivos de origen\Models</Filter>
     </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>Archivos de origen\Core</Filter>
-    </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Archivos de origen\Core</Filter>
     </ClCompile>
@@ -104,6 +107,12 @@
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Archivos de origen\Coche101</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Archivos de origen\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="levelOne.cpp">
+      <Filter>Archivos de origen\Scenes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -143,9 +152,6 @@
     <ClInclude Include="Game.h">
       <Filter>Archivos de encabezado\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Archivos de encabezado\Core</Filter>
-    </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Archivos de encabezado\Cameras</Filter>
     </ClInclude>
@@ -160,6 +166,12 @@
     </ClInclude>
     <ClInclude Include="Text.h">
       <Filter>Archivos de encabezado\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Archivos de encabezado\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="levelOne.h">
+      <Filter>Archivos de encabezado\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
