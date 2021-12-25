@@ -13,8 +13,8 @@ class ModelLoader
 private:
 	float scale;
 	Model model;
-	vector<Vector3Df> vertexList;
-	vector<Vector3Df> normalList;
+	vector<Vector3D> vertexList;
+	vector<Vector3D> normalList;
 	float maxX;
 	float minX;
 	float maxY;
@@ -25,10 +25,10 @@ private:
 	float getWidth();
 	float getHeight();
 	float getLength();
-	void calcBoundaries(Vector3Df vertex);
+	void calcBoundaries(Vector3D vertex);
 
 	Triangle center(Triangle triangle);
-	Vector3Df parseObjLineToVector3D(const string& line);
+	Vector3D parseObjLineToVector3D(const string& line);
 	Triangle parseObjTriangle(const string& line);
 
 public:

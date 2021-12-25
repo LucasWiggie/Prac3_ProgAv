@@ -13,7 +13,7 @@ private:
 
 public:
 	Sphere() : Solid() {}
-	Sphere(Vector3Df coords, Color color, Vector3Df orient, Vector3Df orientSpeed, Vector3Df speed, double radius, int slices, int slacks) : 
+	Sphere(Vector3D coords, Color color, Vector3D orient, Vector3D orientSpeed, Vector3D speed, double radius, int slices, int slacks) : 
 		Solid(coords, color, orient, orientSpeed, speed), radius(radius), slices(slices), slacks(slacks) {}
 
 	inline float getRadius() const {

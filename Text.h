@@ -11,7 +11,7 @@ private:
 	string text;
 
 public:
-	Text(Vector3Df coords, Color color, Vector3Df orient, Vector3Df orientSpeed, Vector3Df speed, string text) : Solid(coords, color, orient, orientSpeed, speed), text(text) {};
+	Text(Vector3D coords, Color color, Vector3D orient, Vector3D orientSpeed, Vector3D speed, string text) : Solid(coords, color, orient, orientSpeed, speed), text(text) {};
 
 	inline string getText() const {
 		return this->text;
