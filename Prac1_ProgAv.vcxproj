@@ -140,17 +140,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Border.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="Cuboid.cpp" />
     <ClCompile Include="Cylinder.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="levelOne.cpp" />
+    <ClCompile Include="LevelOne.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="ModelLoader.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Prac3_ProgAv.cpp" />
+    <ClCompile Include="Road.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Solid.cpp" />
     <ClCompile Include="Sphere.cpp" />
@@ -164,16 +166,18 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Border.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Cube.h" />
     <ClInclude Include="Cuboid.h" />
     <ClInclude Include="Cylinder.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="levelOne.h" />
+    <ClInclude Include="LevelOne.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="ModelLoader.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Road.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Solid.h" />
     <ClInclude Include="Sphere.h" />

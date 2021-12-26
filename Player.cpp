@@ -1,7 +1,6 @@
 #include "Player.h"
 
 void Player::Render() {
-
 	this->modelPtr->Render();
 }
 

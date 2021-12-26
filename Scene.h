@@ -14,28 +14,20 @@ class Scene
 { 
 private:
 	vector<Solid*> gameObjects;
-	Vector3D boundary;
-
-	void checkBoundary(Solid*);
 
 public:
 
-	Scene() : boundary(Vector3D(8, 6, 4)) {}
+	Scene() {}
+	Scene(vector<Solid*> newGameObjects, Vector3D newBoundary) : gameObjects(newGameObjects) {};
 
-	Scene(vector<Solid*> newGameObjects, Vector3D newBoundary) : gameObjects(newGameObjects), boundary(newBoundary) {};
-
-	inline Vector3D getBoundary() const {
-		return this->boundary;
-	}
-
-	inline void setBoundary(const Vector3D newBoundary) {
-		this->boundary = newBoundary;
+	vector<Solid*> getGameObjects() {
+		return this->gameObjects;
 	}
 
 	void addGameObject(Solid*);
 	void Render();
-	void Update(const float& time);
+	virtual void update(const float& time) = 0;
 	virtual void init() = 0;
-	virtual void processKeyPressed() = 0;
+	virtual void processKeyPressed(unsigned char key, int px, int py) = 0;
 };
 

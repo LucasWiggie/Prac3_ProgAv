@@ -111,8 +111,14 @@
     <ClCompile Include="Scene.cpp">
       <Filter>Archivos de origen\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="levelOne.cpp">
+    <ClCompile Include="LevelOne.cpp">
       <Filter>Archivos de origen\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Road.cpp">
+      <Filter>Archivos de origen\Coche101</Filter>
+    </ClCompile>
+    <ClCompile Include="Border.cpp">
+      <Filter>Archivos de origen\Coche101</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -170,8 +176,14 @@
     <ClInclude Include="Scene.h">
       <Filter>Archivos de encabezado\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="levelOne.h">
+    <ClInclude Include="LevelOne.h">
       <Filter>Archivos de encabezado\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Road.h">
+      <Filter>Archivos de encabezado\Coche101</Filter>
+    </ClInclude>
+    <ClInclude Include="Border.h">
+      <Filter>Archivos de encabezado\Coche101</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

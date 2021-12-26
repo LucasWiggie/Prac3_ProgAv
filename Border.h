@@ -2,13 +2,13 @@
 #include "Model.h"
 #include "Solid.h"
 
-class Player : public Solid
+class Border : public Solid
 {
 private:
 	Model* modelPtr;
 
 public:
-	Player() : modelPtr(nullptr) {};
+	Border() : modelPtr(nullptr) {};
 
 	//Devuelve el contenido del puntero  Models
 	inline Model& getModel() {
@@ -25,10 +25,5 @@ public:
 	}
 
 	void Render();
-	void movementRight();
-	void movementLeft();
-	void movementForward();
-	void movementBack();
-
 };
 
